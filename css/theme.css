@@ -1,6 +1,11 @@
 /* Minnesota Terrace Apartments Theme */
 /* Updated July 2026 */
 
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -9,15 +14,28 @@ body {
   line-height: 1.6;
 }
 
+/* Links */
+a {
+  color: #005bbb;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 /* Hero Section */
 .hero {
+  /* Replace with your actual hero image path */
   background: url("assets/hero-living-room.jpg") center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 4rem 1rem;
 }
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
 .hero-content h1 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-bottom: 0.5rem;
 }
 .hero-content p {
@@ -25,6 +43,7 @@ body {
   margin-bottom: 1rem;
 }
 .btn-primary {
+  display: inline-block;
   background-color: #005bbb;
   color: #fff;
   padding: 0.75rem 1.5rem;
@@ -36,15 +55,18 @@ body {
   background-color: #004999;
 }
 
-/* Navigation */
+/* Main Navigation */
+.main-nav {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
 .main-nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
   margin: 0;
-  padding: 0.5rem 0;
-  background-color: #f8f8f8;
+  padding: 0.5rem 0.75rem;
 }
 .main-nav li {
   margin: 0.25rem 0.75rem;
@@ -53,34 +75,56 @@ body {
   color: #005bbb;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.9rem;
 }
 .main-nav a:hover {
   text-decoration: underline;
 }
 
 /* Sections */
+main {
+  padding-bottom: 2rem;
+}
+
 section {
   padding: 2rem 1rem;
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
 }
 section h2 {
   color: #005bbb;
   margin-bottom: 1rem;
 }
+section p {
+  margin-bottom: 0.75rem;
+}
+
+/* Feature & Rate Lists */
 .feature-list,
 .rate-list {
   list-style: none;
   padding: 0;
+  margin: 0 0 1rem 0;
 }
 .feature-list li,
 .rate-list li {
   margin-bottom: 0.5rem;
 }
+
+/* Disclaimer */
 .disclaimer {
   font-size: 0.9rem;
   color: #555;
   margin-top: 1rem;
+}
+
+/* Ordered list in Apply section */
+.apply ol {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem 0;
+}
+.apply ol li {
+  margin-bottom: 0.5rem;
 }
 
 /* Buttons */
@@ -88,13 +132,20 @@ section h2 {
   display: inline-block;
   background-color: #eee;
   color: #005bbb;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 .btn-secondary:hover {
   background-color: #ddd;
+}
+
+/* Address block */
+.visit address {
+  font-style: normal;
+  margin-bottom: 0.75rem;
 }
 
 /* Footer */
@@ -103,13 +154,16 @@ footer {
   color: #fff;
   text-align: center;
   padding: 2rem 1rem;
+  margin-top: 2rem;
 }
+
+/* Footer Navigation */
 .footer-nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
-  margin: 0;
+  margin: 0 0 1rem 0;
   padding: 0;
 }
 .footer-nav li {
@@ -119,5 +173,47 @@ footer {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.85rem;
 }
 .footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Info */
+.footer-info {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.footer-info p {
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+}
+
+/* Equal Housing Logo */
+.eh-logo {
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  max-width: 80px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+  .main-nav ul {
+    padding: 0.5rem 0.5rem;
+  }
+  .main-nav li {
+    margin: 0.25rem 0.5rem;
+  }
+  section {
+    padding: 1.5rem 1rem;
+  }
+}
