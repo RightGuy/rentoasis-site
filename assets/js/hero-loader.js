@@ -1,6 +1,6 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Load JSON data
   fetch("assets/image-data.json")
     .then(response => response.json())
     .then(data => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // ----- DESKTOP HERO -----
       const desktopHero = document.querySelector(".hero-desktop");
-      if (desktopHero) {
+      if (desktopHero && desktopImages.length > 0) {
         desktopImages.forEach(img => {
           const div = document.createElement("div");
           div.className = "hero-img";
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // ----- MOBILE HERO -----
       const mobileHero = document.querySelector(".hero-mobile");
-      if (mobileHero) {
+      if (mobileHero && desktopImages.length > 0) {
 
         const updateMobileHero = () => {
           const img = desktopImages[mobileIndex];
@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateMobileHero(); // initial load
         setInterval(updateMobileHero, 4000); // fade every 4 seconds
       }
+    })
+    .catch(err => {
+      console.error("Hero loader error:", err);
     });
+
 });
-</script>

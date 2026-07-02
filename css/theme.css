@@ -15,8 +15,14 @@ body {
 }
 
 /* ============================================================
-   HERO SYSTEM (DESKTOP + MOBILE)
+   HERO SYSTEM (WRAPPER + DESKTOP + MOBILE)
 ============================================================ */
+
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
 
 /* Desktop hero: 4-image strip */
 .hero-desktop {
@@ -53,15 +59,18 @@ body {
 }
 
 /* ============================================================
-   HERO CONTENT (TEXT OVERLAY IF NEEDED)
+   HERO CONTENT (TEXT OVERLAY)
 ============================================================ */
 
 .hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding-top: 20px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
   text-align: center;
   color: white;
+  z-index: 10;
+  padding: 0 20px;
 }
 
 .hero-content h1 {
