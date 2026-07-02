@@ -1,6 +1,6 @@
-/* ------------------------------
+/* ============================================================
    GLOBAL RESET & BASE
---------------------------------*/
+============================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -14,23 +14,54 @@ body {
   background: #f7f7f7;
 }
 
-/* ------------------------------
-   HERO HEADER (natural photo)
---------------------------------*/
-.hero {
+/* ============================================================
+   HERO SYSTEM (DESKTOP + MOBILE)
+============================================================ */
+
+/* Desktop hero: 4-image strip */
+.hero-desktop {
+  display: flex;
   width: 100%;
-  background: url("../assets/images/301Anacostia.jpg") center top no-repeat;
-  background-size: contain;   /* show full image */
-  background-color: #000;     /* fallback behind image */
-  padding: 20px;              /* small padding only */
-  text-align: center;
-  color: white;
+  height: 380px;
+  overflow: hidden;
 }
+
+.hero-desktop .hero-img {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Mobile hero: single rotating image */
+.hero-mobile {
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.5s ease-in-out;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .hero-desktop { display: none; }
+  .hero-mobile { display: block; }
+}
+
+@media (min-width: 769px) {
+  .hero-desktop { display: flex; }
+  .hero-mobile { display: none; }
+}
+
+/* ============================================================
+   HERO CONTENT (TEXT OVERLAY IF NEEDED)
+============================================================ */
 
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
   padding-top: 20px;
+  text-align: center;
+  color: white;
 }
 
 .hero-content h1 {
@@ -58,9 +89,10 @@ body {
   background: #004c99;
 }
 
-/* ------------------------------
+/* ============================================================
    SECTIONS
---------------------------------*/
+============================================================ */
+
 section {
   padding: 40px 20px;
   max-width: 1000px;
@@ -80,9 +112,10 @@ section h2 {
   font-size: 1.1rem;
 }
 
-/* ------------------------------
+/* ============================================================
    FEATURE LIST
---------------------------------*/
+============================================================ */
+
 .feature-list {
   list-style: none;
   font-size: 1.1rem;
@@ -92,9 +125,10 @@ section h2 {
   padding: 10px 0;
 }
 
-/* ------------------------------
+/* ============================================================
    PRICING GRID
---------------------------------*/
+============================================================ */
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -124,9 +158,10 @@ section h2 {
   margin-top: 10px;
 }
 
-/* ------------------------------
+/* ============================================================
    BUTTONS
---------------------------------*/
+============================================================ */
+
 .btn-secondary {
   background: #ddd;
   color: #333;
@@ -139,9 +174,10 @@ section h2 {
   background: #ccc;
 }
 
-/* ------------------------------
+/* ============================================================
    FOOTER
---------------------------------*/
+============================================================ */
+
 footer {
   text-align: center;
   padding: 40px 20px;
