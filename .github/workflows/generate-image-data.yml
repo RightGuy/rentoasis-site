@@ -1,0 +1,65 @@
+name: Generate image-data.json
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/js/RentOasis-images.xlsx'
+      - 'assets/images/**'
+
+  workflow_dispatch:
+
+concurrency:
+  group: generate-image-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-json:
+    name: Build image-data.json
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install script dependencies
+        run: |
+          cd .github/scripts
+          npm install --save-exact xlsx
+          echo "✅ xlsx installed"
+
+      - name: Generate image-data.json
+        run: node .github/scripts/generate-image-data.js
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet assets/js/image-data.json \
+            && echo "changed=false" >> "$GITHUB_OUTPUT" \
+            || echo "changed=true"  >> "$GITHUB_OUTPUT"
+
+      - name: Commit image-data.json
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/js/image-data.json
+          git commit -m "chore: regenerate image-data.json [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: No changes detected
+        if: steps.diff.outputs.changed == 'false'
+        run: echo "ℹ️  image-data.json is already up to date — nothing to commit."
