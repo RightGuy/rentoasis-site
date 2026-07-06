@@ -1,35 +1,8 @@
 [
   {
-    "Filename": "301anacostia.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/301anacostia.jpg?v=729752",
-    "Image": {},
-    "Alt Text": "301 Anacostia Road SE",
-    "Description": "301 Anacostia Road SE",
-    "Tags": "Exterior, 301",
-    "Include": true
-  },
-  {
-    "Filename": "305.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/305.jpg?v=503041",
-    "Image": {},
-    "Alt Text": "305 Anacostia Road SE",
-    "Description": "305 Anacostia Road SE",
-    "Tags": "Exterior, 305",
-    "Include": true
-  },
-  {
-    "Filename": "3517.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/3517.jpg?v=60409",
-    "Image": {},
-    "Alt Text": "3517 Minnesota Avenue SE",
-    "Description": "3517 Minnesota Avenue SE",
-    "Tags": "Exterior, 3517",
-    "Include": true
-  },
-  {
     "Filename": "sofa-rent123.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/sofa-rent123.jpg?v=818572",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/sofa-rent123.jpg?v=646121",
+    "Image": "",
     "Alt Text": "Living Room with For Rent Banner",
     "Description": "Living Room with For Rent Banner",
     "Tags": "Interior, Living Room",
@@ -37,8 +10,8 @@
   },
   {
     "Filename": "bedroom1.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroom1.jpg?v=559221",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroom1.jpg?v=951225",
+    "Image": "",
     "Alt Text": "Bedroom",
     "Description": "Bedroom",
     "Tags": "Interior, Bedroom",
@@ -46,8 +19,8 @@
   },
   {
     "Filename": "bedroom2.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroom2.jpg?v=903982",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroom2.jpg?v=665405",
+    "Image": "",
     "Alt Text": "Bedroom",
     "Description": "Bedroom",
     "Tags": "Interior, Bedroom",
@@ -55,8 +28,8 @@
   },
   {
     "Filename": "hallway1.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/hallway1.jpg?v=968873",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/hallway1.jpg?v=753207",
+    "Image": "",
     "Alt Text": "Hallway Closets",
     "Description": "Hallway Closets",
     "Tags": "Interior, Hallway",
@@ -64,17 +37,17 @@
   },
   {
     "Filename": "hallway2.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/hallway2.jpg?v=847800",
-    "Image": {},
-    "Alt Text": "Hallway",
-    "Description": "Hallway",
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/hallway2.jpg?v=129500",
+    "Image": "",
+    "Alt Text": "Hallway Closets",
+    "Description": "Hallway Closets",
     "Tags": "Interior, Hallway",
     "Include": true
   },
   {
     "Filename": "bedroomfront.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroomfront.jpg?v=823099",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroomfront.jpg?v=695840",
+    "Image": "",
     "Alt Text": "Bedroom",
     "Description": "Bedroom",
     "Tags": "Interior, Bedroom",
@@ -82,8 +55,8 @@
   },
   {
     "Filename": "bedroomdoor.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroomdoor.jpg?v=422184",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroomdoor.jpg?v=127757",
+    "Image": "",
     "Alt Text": "Bedroom",
     "Description": "Bedroom",
     "Tags": "Interior, Bedroom",
@@ -91,8 +64,8 @@
   },
   {
     "Filename": "bedroomfront2.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroomfront2.jpg?v=582884",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bedroomfront2.jpg?v=956156",
+    "Image": "",
     "Alt Text": "Bedroom",
     "Description": "Bedroom",
     "Tags": "Interior, Bedroom",
@@ -100,8 +73,8 @@
   },
   {
     "Filename": "livingroom1.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom1.jpg?v=359915",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom1.jpg?v=143845",
+    "Image": "",
     "Alt Text": "Living Room",
     "Description": "Living Room",
     "Tags": "Interior, Living Room",
@@ -109,8 +82,8 @@
   },
   {
     "Filename": "livingroom2.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom2.jpg?v=801319",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom2.jpg?v=814691",
+    "Image": "",
     "Alt Text": "Living Room",
     "Description": "Living Room",
     "Tags": "Interior, Living Room",
@@ -118,8 +91,8 @@
   },
   {
     "Filename": "livingroom3.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom3.jpg?v=184611",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom3.jpg?v=936574",
+    "Image": "",
     "Alt Text": "Living Room",
     "Description": "Living Room",
     "Tags": "Interior, Living Room",
@@ -127,8 +100,8 @@
   },
   {
     "Filename": "livingroom4.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom4.jpg?v=564636",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/livingroom4.jpg?v=499976",
+    "Image": "",
     "Alt Text": "Living Room",
     "Description": "Living Room",
     "Tags": "Interior, Living Room",
@@ -136,8 +109,8 @@
   },
   {
     "Filename": "kitchen1.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/kitchen1.jpg?v=815556",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/kitchen1.jpg?v=640930",
+    "Image": "",
     "Alt Text": "Kitchen",
     "Description": "Kitchen",
     "Tags": "Interior, Kitchen",
@@ -145,8 +118,8 @@
   },
   {
     "Filename": "kitchen2.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/kitchen2.jpg?v=777351",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/kitchen2.jpg?v=475847",
+    "Image": "",
     "Alt Text": "Kitchen",
     "Description": "Kitchen",
     "Tags": "Interior, Kitchen",
@@ -154,8 +127,8 @@
   },
   {
     "Filename": "kitchen3.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/kitchen3.jpg?v=933545",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/kitchen3.jpg?v=378896",
+    "Image": "",
     "Alt Text": "Kitchen",
     "Description": "Kitchen",
     "Tags": "Interior, Kitchen",
@@ -163,8 +136,8 @@
   },
   {
     "Filename": "bathroom.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bathroom.jpg?v=511648",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/bathroom.jpg?v=426748",
+    "Image": "",
     "Alt Text": "Bathroom",
     "Description": "Bathroom",
     "Tags": "Interior, Bathroom",
@@ -172,11 +145,158 @@
   },
   {
     "Filename": "sofa.jpg",
-    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/sofa.jpg?v=234408",
-    "Image": {},
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/sofa.jpg?v=799126",
+    "Image": "",
     "Alt Text": "Living Room",
     "Description": "Living Room",
     "Tags": "Interior, Living Room",
     "Include": true
+  },
+  {
+    "Filename": "301anacostia.png",
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/301anacostia.png?v=205363",
+    "Image": "",
+    "Alt Text": "301 Anacostia Road SE",
+    "Description": "301 Anacostia Road SE",
+    "Tags": "Exterior, 301",
+    "Include": true
+  },
+  {
+    "Filename": "305.jpeg",
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/305.jpeg?v=617473",
+    "Image": "",
+    "Alt Text": "305 Anacostia Road SE",
+    "Description": "305 Anacostia Road SE",
+    "Tags": "Exterior, 305",
+    "Include": true
+  },
+  {
+    "Filename": "3517.png",
+    "URL": "https://raw.githubusercontent.com/RightGuy/rentoasis-site/main/assets/images/3517.png?v=139829",
+    "Image": "",
+    "Alt Text": "3517 Minnesota Avenue SE",
+    "Description": "3517 Minnesota Avenue SE",
+    "Tags": "Exterior, 3517",
+    "Include": true
+  },
+  {
+    "Filename": "301anacostia-original.jpg",
+    "Alt Text": "301anacostia-original.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "303.jpg",
+    "Alt Text": "303.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "305-original.jpg",
+    "Alt Text": "305-original.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "307.jpg",
+    "Alt Text": "307.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3515.jpg",
+    "Alt Text": "3515.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3517-original.jpg",
+    "Alt Text": "3517-original.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3519.jpg",
+    "Alt Text": "3519.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3521.jpg",
+    "Alt Text": "3521.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "bathroomsink.JPG",
+    "Alt Text": "bathroomsink.JPG",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "bathroomwindow.JPG",
+    "Alt Text": "bathroomwindow.JPG",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "bathroomwithtub2.JPG",
+    "Alt Text": "bathroomwithtub2.JPG",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "oasismap.jpg",
+    "Alt Text": "oasismap.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "oasispalm.jpg",
+    "Alt Text": "oasispalm.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "palm1.gif",
+    "Alt Text": "palm1.gif",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "sinktoilet.jpg",
+    "Alt Text": "sinktoilet.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
   }
 ]
