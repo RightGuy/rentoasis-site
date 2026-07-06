@@ -51,6 +51,31 @@ a:hover {
   height: 100%;
   background-size: cover;
   background-position: center;
+  position: relative;          /* required to anchor caption inside tile */
+  overflow: hidden;
+}
+
+/* Caption overlay — hidden until tile is hovered */
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  text-align: center;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.hero-img:hover .hero-caption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Mobile hero background container */

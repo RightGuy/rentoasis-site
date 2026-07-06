@@ -25,6 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
           div.className = "hero-img";
           div.style.backgroundImage = `url('assets/images/${img.Filename}')`;
           div.setAttribute("aria-label", img["Alt Text"]);
+
+          // Caption overlay — fades in on hover via CSS
+          const caption = document.createElement("div");
+          caption.className = "hero-caption";
+          caption.textContent = img.Description || img["Alt Text"] || "";
+          div.appendChild(caption);
+
           desktopHero.appendChild(div);
         });
       }
