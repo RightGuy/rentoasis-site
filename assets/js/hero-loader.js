@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // Load JSON data
-  fetch("assets/image-data.json")
+  fetch("assets/js/image-data.json")
     .then(response => response.json())
     .then(data => {
 
