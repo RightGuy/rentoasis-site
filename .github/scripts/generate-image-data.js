@@ -85,27 +85,36 @@ for (const row of dataRows) {
   if (basename) metaByBasename.set(basename, obj);
 }
 
-// ── 5. Scan /assets/images/ for actual image files ─────────────────────────
+// ── 5. Scan /assets/images/ for actual image files (NO SUBFOLDERS) ──────────
 if (!fs.existsSync(IMAGES_DIR)) {
   console.error(`❌  Images directory not found: ${IMAGES_DIR}`);
   process.exit(1);
 }
 
-function walkDir(dir) {
-  const results = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results.push(...walkDir(fullPath));
-    } else if (IMAGE_EXTS.has(path.extname(entry.name).toLowerCase())) {
-      results.push(fullPath);
-    }
-  }
-  return results;
+// Folders to exclude
+const EXCLUDED_DIRS = new Set([
+  'backup',
+  'originals',
+  'furniture',
+  'archive',
+  'temp'
+]);
+
+function listTopLevelImages(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter(entry => {
+      if (entry.isDirectory()) {
+        return !EXCLUDED_DIRS.has(entry.name.toLowerCase());
+      }
+      return entry.isFile();
+    })
+    .filter(entry => entry.isFile())   // only files
+    .map(entry => path.join(dir, entry.name))
+    .filter(fullPath => IMAGE_EXTS.has(path.extname(fullPath).toLowerCase()));
 }
 
-const allImagePaths = walkDir(IMAGES_DIR);
-console.log(`🖼️   Found ${allImagePaths.length} image file(s) in ${IMAGES_DIR}`);
+const allImagePaths = listTopLevelImages(IMAGES_DIR);
+console.log(`🖼️   Found ${allImagePaths.length} top-level image file(s) in ${IMAGES_DIR}`);
 
 // ── 6. Merge: image files + spreadsheet metadata ───────────────────────────
 const imageData = [];
