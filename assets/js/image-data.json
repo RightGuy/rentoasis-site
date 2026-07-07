@@ -180,32 +180,8 @@
     "Include": true
   },
   {
-    "Filename": "301anacostia-original.jpg",
-    "Alt Text": "301anacostia-original.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
     "Filename": "303.png",
     "Alt Text": "303.png",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "303-original.jpg",
-    "Alt Text": "303-original.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "305-original.jpg",
-    "Alt Text": "305-original.jpg",
     "Description": "",
     "Tags": "",
     "Include": false,
@@ -220,32 +196,8 @@
     "_unmatched": true
   },
   {
-    "Filename": "307-original.jpg",
-    "Alt Text": "307-original.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
     "Filename": "3515.png",
     "Alt Text": "3515.png",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "3515-original.jpg",
-    "Alt Text": "3515-original.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "3517-original.jpg",
-    "Alt Text": "3517-original.jpg",
     "Description": "",
     "Tags": "",
     "Include": false,
@@ -260,48 +212,8 @@
     "_unmatched": true
   },
   {
-    "Filename": "3519-original.jpg",
-    "Alt Text": "3519-original.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
     "Filename": "3521.png",
     "Alt Text": "3521.png",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "3521-original.jpg",
-    "Alt Text": "3521-original.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "bathroomsink.JPG",
-    "Alt Text": "bathroomsink.JPG",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "bathroomwindow.JPG",
-    "Alt Text": "bathroomwindow.JPG",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "bathroomwithtub2.JPG",
-    "Alt Text": "bathroomwithtub2.JPG",
     "Description": "",
     "Tags": "",
     "Include": false,
@@ -318,38 +230,6 @@
   {
     "Filename": "livingroom-furniture1.png",
     "Alt Text": "livingroom-furniture1.png",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "oasismap.jpg",
-    "Alt Text": "oasismap.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "oasispalm.jpg",
-    "Alt Text": "oasispalm.jpg",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "palm1.gif",
-    "Alt Text": "palm1.gif",
-    "Description": "",
-    "Tags": "",
-    "Include": false,
-    "_unmatched": true
-  },
-  {
-    "Filename": "sinktoilet.jpg",
-    "Alt Text": "sinktoilet.jpg",
     "Description": "",
     "Tags": "",
     "Include": false,
