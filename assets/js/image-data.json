@@ -188,8 +188,16 @@
     "_unmatched": true
   },
   {
-    "Filename": "303.jpg",
-    "Alt Text": "303.jpg",
+    "Filename": "303.png",
+    "Alt Text": "303.png",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "303-original.jpg",
+    "Alt Text": "303-original.jpg",
     "Description": "",
     "Tags": "",
     "Include": false,
@@ -204,16 +212,32 @@
     "_unmatched": true
   },
   {
-    "Filename": "307.jpg",
-    "Alt Text": "307.jpg",
+    "Filename": "307.png",
+    "Alt Text": "307.png",
     "Description": "",
     "Tags": "",
     "Include": false,
     "_unmatched": true
   },
   {
-    "Filename": "3515.jpg",
-    "Alt Text": "3515.jpg",
+    "Filename": "307-original.jpg",
+    "Alt Text": "307-original.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3515.png",
+    "Alt Text": "3515.png",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3515-original.jpg",
+    "Alt Text": "3515-original.jpg",
     "Description": "",
     "Tags": "",
     "Include": false,
@@ -228,16 +252,32 @@
     "_unmatched": true
   },
   {
-    "Filename": "3519.jpg",
-    "Alt Text": "3519.jpg",
+    "Filename": "3519.png",
+    "Alt Text": "3519.png",
     "Description": "",
     "Tags": "",
     "Include": false,
     "_unmatched": true
   },
   {
-    "Filename": "3521.jpg",
-    "Alt Text": "3521.jpg",
+    "Filename": "3519-original.jpg",
+    "Alt Text": "3519-original.jpg",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3521.png",
+    "Alt Text": "3521.png",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "3521-original.jpg",
+    "Alt Text": "3521-original.jpg",
     "Description": "",
     "Tags": "",
     "Include": false,
@@ -262,6 +302,22 @@
   {
     "Filename": "bathroomwithtub2.JPG",
     "Alt Text": "bathroomwithtub2.JPG",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "bedroom1furniture.png",
+    "Alt Text": "bedroom1furniture.png",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "livingroom-furniture1.png",
+    "Alt Text": "livingroom-furniture1.png",
     "Description": "",
     "Tags": "",
     "Include": false,
