@@ -1,5 +1,5 @@
 /* ============================================================
-   BASE
+   BASE STYLE SETTINGS
 ============================================================ */
 * {
   box-sizing: border-box;
@@ -10,7 +10,7 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   color: #222;
   background-color: #fff;
-  line-height: 1.6;
+  line-height: 1.4; /* Tightened text line height globally to reduce scrolling */
 }
 
 a {
@@ -22,12 +22,14 @@ a:hover {
 }
 
 /* ============================================================
-   HERO WRAPPER (CRITICAL FOR JS)
+   HERO WRAPPER SYSTEM (MIXED UNITS FLUID HEIGHT)
 ============================================================ */
 .hero-wrapper {
   position: relative;
   width: 100%;
-  height: 420px; /* Desktop hero height */
+  /* MIXED UNIT CLAMP: Scales with screen height. Minimum 200px (33% mobile view), 
+     preferred 35% of the viewport height, maximum 440px on huge screens */
+  height: clamp(200px, 35vh, 440px); 
   overflow: hidden;
 }
 
@@ -100,39 +102,26 @@ a:hover {
 /* Hero text overlay */
 .hero-content {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px; /* Tightly anchored to prevent layout clipping */
   left: 0;
   width: 100%;
   text-align: center;
   color: #fff;
-  padding: 1rem;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  padding: 0.75rem;
 }
 .hero-content h1 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  /* TEXT OUTLINE CONFIGURATION */
+  -webkit-text-stroke: 1.5px #000000; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 .hero-content p {
   font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* ============================================================
-   MOBILE BEHAVIOR (CRITICAL FOR YOUR PHONE)
-============================================================ */
-@media (max-width: 600px) {
-
-  .hero-wrapper {
-    height: 300px;             /* Mobile height */
-  }
-
-  .hero-desktop {
-    display: none;             /* Hide desktop tiles */
-  }
-
-  .hero-mobile {
-    display: block;            /* Show mobile rotation */
-  }
+  margin-bottom: 0.75rem;
+  /* TEXT OUTLINE CONFIGURATION */
+  -webkit-text-stroke: 1px #000000;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 /* ============================================================
@@ -142,7 +131,7 @@ a:hover {
   display: inline-block;
   background-color: #005bbb;
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  padding: 0.55rem 1.25rem; /* Shrunk padding slightly to maintain layout compacting */
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
@@ -155,7 +144,7 @@ a:hover {
   display: inline-block;
   background-color: #eee;
   color: #005bbb;
-  padding: 0.5rem 1.25rem;
+  padding: 0.4rem 1.1rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
@@ -177,10 +166,10 @@ a:hover {
   justify-content: center;
   list-style: none;
   margin: 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0.4rem 0.5rem;
 }
 .main-nav li {
-  margin: 0.25rem 0.75rem;
+  margin: 0.25rem 0.6rem;
 }
 .main-nav a {
   color: #005bbb;
@@ -190,44 +179,65 @@ a:hover {
 }
 
 /* ============================================================
-   SECTIONS
+   PAGE SECTIONS & FLUID LAYOUT
 ============================================================ */
 section {
-  padding: 2rem 1rem;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 900px; /* absolute limit for large monitors */
+  width: 92%;       /* MIXED UNIT: Dynamic fluid width leaves perfect 4% side margins on all screens */
+  margin: 0 auto;   /* Centers layout blocks */
+  padding: 1.25rem 1.5vw; /* Compressed vertical padding to pull text upwards */
 }
 section h2 {
   color: #005bbb;
-  margin-bottom: 1rem;
+  margin-top: 0; /* Clear empty top gaps pushing header content down */
+  margin-bottom: 0.5rem; /* Tighter baseline spacing to the text directly under headings */
 }
 
 /* Lists */
-.feature-list,
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem 0;
+}
+.feature-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* MODERN MIXED UNIT RESPONSIVE RENTAL RATES GRID */
 .rate-list {
+  display: flex;
+  flex-wrap: wrap;  /* Drops columns to a stack fluidly on narrow screens */
+  gap: 15px;        /* Fixed absolute pixel gaps between fluid columns */
   list-style: none;
   padding: 0;
   margin: 0 0 1rem 0;
 }
-.feature-list li,
 .rate-list li {
-  margin-bottom: 0.5rem;
+  /* MIXED UNIT FLUID CARD LOGIC: Occupies roughly 33% on desktop minus gaps, 
+     but safely drops to full columns if space goes lower than 200px */
+  flex: 1 1 calc(33.333% - 15px);
+  min-width: 200px; 
+  background: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #005bbb;
+  margin-bottom: 0; /* Reset single list row margins */
 }
 
 /* Disclaimer */
 .disclaimer {
   font-size: 0.9rem;
   color: #555;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 /* Ordered list */
 .how-to-apply ol {
   padding-left: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 .how-to-apply ol li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 /* ============================================================
@@ -237,17 +247,17 @@ footer {
   background-color: #222;
   color: #fff;
   text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  margin-top: 1.5rem;
 }
 
 /* Footer navigation */
 .footer-nav {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 .footer-nav a {
   color: #fff;
-  margin: 0 0.75rem;
+  margin: 0 0.5rem;
   text-decoration: none;
   font-weight: 600;
 }
@@ -258,31 +268,97 @@ footer {
 /* Equal Housing Logo */
 .eh-logo {
   display: block;
-  margin: 0.75rem auto;
-  max-width: 80px;
+  margin: 0.5rem auto;
+  max-width: 70px;
 }
 
 /* Fair Housing Text */
 .fair-housing {
   font-size: 0.85rem;
-  margin: 0.5rem 0;
+  margin: 0.4rem 0;
   color: #fff;
 }
 
 /* Copyright */
 footer p {
   font-size: 0.85rem;
-  margin: 0.25rem 0;
+  margin: 0.2rem 0;
 }
 
 /* ============================================================
-   RESPONSIVE TWEAKS
+   DEVICE OPTIMIZATION MEDIA QUERIES
 ============================================================ */
-@media (max-width: 600px) {
+
+/* TABLETS & MEDIUM SCREENS */
+@media (max-width: 900px) {
   section {
-    padding: 1.5rem 1rem;
+    padding: 1rem 1vw; /* Shrinks container cushioning slightly */
+  }
+}
+
+/* SMARTPHONES */
+@media (max-width: 600px) {
+
+  .hero-desktop {
+    display: none;             /* Hide desktop tiles */
+  }
+
+  .hero-mobile {
+    display: block;            /* Show mobile rotation */
+  }
+
+  /* Compact text sizes scaling beautifully within the clamp-constrained 200px layout height */
+  .hero-content {
+    bottom: 5px; 
+    padding: 0.35rem;
+  }
+  .hero-content h1 {
+    font-size: 1.15rem;
+    margin-bottom: 0.15rem;
+    -webkit-text-stroke: 1px #000000; /* Maintains high-contrast on narrow mobile views */
+  }
+  .hero-content p {
+    font-size: 0.8rem;
+    margin-bottom: 0.45rem;
+    line-height: 1.15;
+    -webkit-text-stroke: 0.8px #000000;
+  }
+  .hero-content .btn-primary {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  /* Wrapped Menu Link Padding Compression */
+  .main-nav ul {
+    padding: 0.15rem;
+  }
+  .main-nav li {
+    margin: 0.1rem 0.35rem; /* Pulls navigation targets tighter together to eliminate gaps */
   }
   .main-nav a {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* Drastic layout padding compression to bring up off-screen information */
+  section {
+    padding: 0.75rem 0.5rem;
+  }
+  section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+/* SMART WATCHES & ULTRA-NARROW INTERFACES */
+@media (max-width: 320px) {
+  .hero-content h1 {
+    font-size: 0.95rem;
+    -webkit-text-stroke: 0.5px #000000;
+  }
+  .hero-content p {
+    display: none; /* Safely strips non-essential text elements out of tiny viewports */
+  }
+  .main-nav a {
+    font-size: 0.75rem;
   }
 }
