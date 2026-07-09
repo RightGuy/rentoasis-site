@@ -27,8 +27,7 @@ a:hover {
 .hero-wrapper {
   position: relative;
   width: 100%;
-  /* MIXED UNIT CLAMP: Scales with screen height. Minimum 200px (33% mobile view), 
-     preferred 35% of the viewport height, maximum 440px on huge screens */
+  /* MIXED UNIT CLAMP: Minimum 200px (approx 33% mobile view), preferred 35% of screen height, max 440px */
   height: clamp(200px, 35vh, 440px); 
   overflow: hidden;
 }
@@ -102,26 +101,35 @@ a:hover {
 /* Hero text overlay */
 .hero-content {
   position: absolute;
-  bottom: 15px; /* Tightly anchored to prevent layout clipping */
+  bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
   color: #fff;
-  padding: 0.75rem;
+  padding: 1.25rem 0.75rem 1rem 0.75rem;
+  
+  /* CRITICAL READABILITY FIX: Soft ambient backdrop that fades out 
+     completely at the top, ensuring crystal-clear text over any photo */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
 }
+
 .hero-content h1 {
   font-size: 2rem;
-  margin-bottom: 0.35rem;
-  /* TEXT OUTLINE CONFIGURATION */
-  -webkit-text-stroke: 1.5px #000000; 
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  margin: 0 auto 0.35rem auto;
+  font-weight: 700;
+  max-width: 800px;
+  
+  /* HIGH CONTRAST DROP SHADOWS (No messy stroke lines) */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6);
 }
+
 .hero-content p {
   font-size: 1rem;
-  margin-bottom: 0.75rem;
-  /* TEXT OUTLINE CONFIGURATION */
-  -webkit-text-stroke: 1px #000000;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  margin: 0 auto 0.75rem auto;
+  max-width: 700px;
+  
+  /* HIGH CONTRAST DROP SHADOWS */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.6);
 }
 
 /* ============================================================
@@ -131,10 +139,11 @@ a:hover {
   display: inline-block;
   background-color: #005bbb;
   color: #fff;
-  padding: 0.55rem 1.25rem; /* Shrunk padding slightly to maintain layout compacting */
+  padding: 0.55rem 1.25rem; 
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
+  text-shadow: none; /* Keeps text inside button flat and clean */
 }
 .btn-primary:hover {
   background-color: #004999;
@@ -182,14 +191,14 @@ a:hover {
    PAGE SECTIONS & FLUID LAYOUT
 ============================================================ */
 section {
-  max-width: 900px; /* absolute limit for large monitors */
-  width: 92%;       /* MIXED UNIT: Dynamic fluid width leaves perfect 4% side margins on all screens */
-  margin: 0 auto;   /* Centers layout blocks */
+  max-width: 900px; 
+  width: 92%;       /* Dynamic fluid width leaves perfect side margins */
+  margin: 0 auto;   
   padding: 1.25rem 1.5vw; /* Compressed vertical padding to pull text upwards */
 }
 section h2 {
   color: #005bbb;
-  margin-top: 0; /* Clear empty top gaps pushing header content down */
+  margin-top: 0; /* Clear empty top gaps pushing layout content down */
   margin-bottom: 0.5rem; /* Tighter baseline spacing to the text directly under headings */
 }
 
@@ -213,15 +222,14 @@ section h2 {
   margin: 0 0 1rem 0;
 }
 .rate-list li {
-  /* MIXED UNIT FLUID CARD LOGIC: Occupies roughly 33% on desktop minus gaps, 
-     but safely drops to full columns if space goes lower than 200px */
+  /* MIXED UNIT FLUID CARD LOGIC */
   flex: 1 1 calc(33.333% - 15px);
   min-width: 200px; 
   background: #f9f9f9;
   padding: 0.75rem 1rem;
   border-radius: 4px;
   border-left: 4px solid #005bbb;
-  margin-bottom: 0; /* Reset single list row margins */
+  margin-bottom: 0; 
 }
 
 /* Disclaimer */
@@ -292,7 +300,7 @@ footer p {
 /* TABLETS & MEDIUM SCREENS */
 @media (max-width: 900px) {
   section {
-    padding: 1rem 1vw; /* Shrinks container cushioning slightly */
+    padding: 1rem 1vw; 
   }
 }
 
@@ -300,46 +308,46 @@ footer p {
 @media (max-width: 600px) {
 
   .hero-desktop {
-    display: none;             /* Hide desktop tiles */
+    display: none;             
   }
 
   .hero-mobile {
-    display: block;            /* Show mobile rotation */
+    display: block;            
   }
 
-  /* Compact text sizes scaling beautifully within the clamp-constrained 200px layout height */
+  /* Compact text sizes scaling beautifully within the 200px layout height */
   .hero-content {
-    bottom: 5px; 
-    padding: 0.35rem;
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0) 100%);
   }
   .hero-content h1 {
-    font-size: 1.15rem;
-    margin-bottom: 0.15rem;
-    -webkit-text-stroke: 1px #000000; /* Maintains high-contrast on narrow mobile views */
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8);
   }
   .hero-content p {
     font-size: 0.8rem;
     margin-bottom: 0.45rem;
-    line-height: 1.15;
-    -webkit-text-stroke: 0.8px #000000;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8);
   }
   .hero-content .btn-primary {
     padding: 0.35rem 0.85rem;
     font-size: 0.75rem;
   }
 
-  /* Wrapped Menu Link Padding Compression */
+  /* Wrapped Menu Link Spacing Compression */
   .main-nav ul {
     padding: 0.15rem;
   }
   .main-nav li {
-    margin: 0.1rem 0.35rem; /* Pulls navigation targets tighter together to eliminate gaps */
+    margin: 0.1rem 0.35rem; 
   }
   .main-nav a {
     font-size: 0.8rem;
   }
 
-  /* Drastic layout padding compression to bring up off-screen information */
+  /* Layout padding compression to bring up off-screen content */
   section {
     padding: 0.75rem 0.5rem;
   }
@@ -353,10 +361,9 @@ footer p {
 @media (max-width: 320px) {
   .hero-content h1 {
     font-size: 0.95rem;
-    -webkit-text-stroke: 0.5px #000000;
   }
   .hero-content p {
-    display: none; /* Safely strips non-essential text elements out of tiny viewports */
+    display: none; 
   }
   .main-nav a {
     font-size: 0.75rem;
