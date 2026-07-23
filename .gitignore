@@ -1,2 +1,4 @@
 *.bat
 image-list.txt
+/_pgbackup
+/_pginfo
