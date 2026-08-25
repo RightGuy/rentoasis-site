@@ -5,11 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Photo Gallery - Oasis Realty</title>
   <link rel="stylesheet" href="css/theme.css">
+  <style>
+    /* Subpage Palm Logo Positioning */
+    .hero-subpage .subpage-palm-logo {
+      position: absolute;
+      top: 6px;
+      left: 10px;
+      height: 42px;
+      width: auto;
+      opacity: 0.35;
+      filter: brightness(0) invert(1);
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
 
 <div class="hero-subpage">
-  <img src="assets/images/oasispalmsweb.jpg" alt="" class="hero-logo">
+  <img src="assets/logos/oasispalmsweb.jpg" alt="" class="subpage-palm-logo">
   <h1>Photo Gallery</h1>
   <p>Call Us Today: <a href="tel:2025822535" class="hero-phone">(202) 582-2535</a></p>
 </div>
@@ -32,19 +45,19 @@
     <a href="https://my.matterport.com/show/?m=58cNYRtVp9r" target="_blank" rel="noopener" class="btn-primary">🌐 Take 3D Virtual Tour</a>
   </div>
 
-  <h2>Community & Apartment Photos</h2>
-  <p>Tap any photo to expand. Swipe left or right to view adjacent images:</p>
+  <h2>Community & Property Photo Gallery</h2>
+  <p>Tap any image to expand. Swipe left or right to browse through all community photos:</p>
 
   <div id="gallery-grid" class="gallery-grid"></div>
 </section>
 
-<!-- Swipeable Lightbox Modal -->
+<!-- Fullscreen Swipe Lightbox Modal -->
 <div id="lightbox" class="modal">
   <span class="modal-close" onclick="closeLightbox()">&times;</span>
   <span class="modal-arrow left" onclick="prevImage()">&#10094;</span>
   <span class="modal-arrow right" onclick="nextImage()">&#10095;</span>
   <div class="modal-content-wrapper">
-    <img id="lightbox-img" src="" alt="Gallery Preview">
+    <img id="lightbox-img" src="" alt="Gallery View">
     <div id="lightbox-caption" class="modal-caption"></div>
   </div>
 </div>
@@ -68,46 +81,41 @@
 </footer>
 
 <script>
-  // Complete image catalog from assets/images/
-  const photoCatalog = [
-    { src: 'assets/images/sofa.jpg', caption: 'Spacious Living Room' },
-    { src: 'assets/images/kitchen.jpg', caption: 'Dining Area & Kitchen' },
-    { src: 'assets/images/bathroom.jpg', caption: 'Modern Bathroom' },
-    { src: 'assets/images/3517.jpg', caption: 'Minnesota Terrace Exterior' },
-    { src: 'assets/images/301Anacostia.jpg', caption: '301 Anacostia Road Building' },
-    { src: 'assets/images/305.jpg', caption: '305 Anacostia Building Grounds' },
-    { src: 'assets/images/3519Minnesota.jpg', caption: '3519 Minnesota Avenue Elevation' },
-    { src: 'assets/images/metro2.jpg', caption: 'Nearby Metro & Bus Transit' }
-  ];
-
   let currentPhotos = [];
   let currentIndex = 0;
 
-  // Fisher-Yates Shuffle Algorithm for random ordering on each load
-  function shuffle(array) {
-    let arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
+  // Shuffle Helper
+  const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
-  function renderGallery() {
-    currentPhotos = shuffle(photoCatalog);
-    const container = document.getElementById('gallery-grid');
-    container.innerHTML = '';
-    
-    currentPhotos.forEach((photo, idx) => {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.onclick = () => openLightbox(idx);
-      item.innerHTML = `
-        <img src="${photo.src}" alt="${photo.caption}">
-        <div class="caption">${photo.caption}</div>
-      `;
-      container.appendChild(item);
-    });
+  // Dynamic Image Loader via image-data.json
+  function loadDynamicGallery() {
+    fetch("assets/js/image-data.json")
+      .then(response => response.json())
+      .then(data => {
+        // Only include images where Include === true
+        const included = data.filter(img => img.Include === true);
+        
+        // Randomly shuffle all included images
+        currentPhotos = shuffle(included);
+
+        const container = document.getElementById('gallery-grid');
+        container.innerHTML = '';
+        
+        currentPhotos.forEach((photo, idx) => {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          item.onclick = () => openLightbox(idx);
+          
+          const captionText = photo.Description || photo["Alt Text"] || "Property Image";
+          
+          item.innerHTML = `
+            <img src="assets/images/${photo.Filename}" alt="${captionText}" loading="lazy">
+            <div class="caption">${captionText}</div>
+          `;
+          container.appendChild(item);
+        });
+      })
+      .catch(err => console.error("Gallery JSON loader error:", err));
   }
 
   function openLightbox(index) {
@@ -122,21 +130,24 @@
 
   function updateLightbox() {
     const photo = currentPhotos[currentIndex];
-    document.getElementById('lightbox-img').src = photo.src;
-    document.getElementById('lightbox-caption').textContent = photo.caption;
+    const captionText = photo.Description || photo["Alt Text"] || "";
+    document.getElementById('lightbox-img').src = `assets/images/${photo.Filename}`;
+    document.getElementById('lightbox-caption').textContent = captionText;
   }
 
   function nextImage() {
+    if (currentPhotos.length === 0) return;
     currentIndex = (currentIndex + 1) % currentPhotos.length;
     updateLightbox();
   }
 
   function prevImage() {
+    if (currentPhotos.length === 0) return;
     currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length;
     updateLightbox();
   }
 
-  // Touch Swipe Gesture Detection
+  // Touch Swipe Handling for Mobile Devices
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -147,20 +158,12 @@
 
   modal.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+    const threshold = 40;
+    if (touchEndX < touchStartX - threshold) nextImage();
+    if (touchEndX > touchStartX + threshold) prevImage();
   }, { passive: true });
 
-  function handleSwipe() {
-    const threshold = 40; // minimum distance for swipe
-    if (touchEndX < touchStartX - threshold) {
-      nextImage(); // Swiped left
-    }
-    if (touchEndX > touchStartX + threshold) {
-      prevImage(); // Swiped right
-    }
-  }
-
-  // Keyboard navigation support
+  // Keyboard Navigation Support
   document.addEventListener('keydown', e => {
     if (document.getElementById('lightbox').style.display === 'flex') {
       if (e.key === 'ArrowRight') nextImage();
@@ -169,7 +172,7 @@
     }
   });
 
-  document.addEventListener('DOMContentLoaded', renderGallery);
+  document.addEventListener('DOMContentLoaded', loadDynamicGallery);
 
   (function() {
     const hostname = window.location.hostname.toLowerCase();
