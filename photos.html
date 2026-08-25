@@ -6,14 +6,15 @@
   <title>Photo Gallery - Oasis Realty</title>
   <link rel="stylesheet" href="css/theme.css">
   <style>
-    /* Subpage Palm Logo Positioning */
+    /* Subpage Hero Header & Transparent Palm Logo Styling */
     .hero-subpage .subpage-palm-logo {
       position: absolute;
       top: 6px;
       left: 10px;
       height: 42px;
       width: auto;
-      opacity: 0.35;
+      opacity: 0.85;
+      /* Turns the black PNG into a crisp white silhouette over the hero header */
       filter: brightness(0) invert(1);
       pointer-events: none;
     }
@@ -22,7 +23,7 @@
 <body>
 
 <div class="hero-subpage">
-  <img src="assets/logos/oasispalmsweb.jpg" alt="" class="subpage-palm-logo">
+  <img src="assets/logos/oasispalmclear1.png" alt="Oasis Palms" class="subpage-palm-logo">
   <h1>Photo Gallery</h1>
   <p>Call Us Today: <a href="tel:2025822535" class="hero-phone">(202) 582-2535</a></p>
 </div>
@@ -87,15 +88,17 @@
   // Shuffle Helper
   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
-  // Dynamic Image Loader via image-data.json
+  // Dynamic Image Loader via image-data.json with Cache-Busting Timestamp
   function loadDynamicGallery() {
-    fetch("assets/js/image-data.json")
+    fetch("assets/js/image-data.json?v=" + Date.now())
       .then(response => response.json())
       .then(data => {
-        // Only include images where Include === true
+        // Filter strictly for Include === true
         const included = data.filter(img => img.Include === true);
         
-        // Randomly shuffle all included images
+        console.log(`Loaded ${included.length} images into photo gallery.`);
+
+        // Randomize image order on every visit
         currentPhotos = shuffle(included);
 
         const container = document.getElementById('gallery-grid');
@@ -163,7 +166,7 @@
     if (touchEndX > touchStartX + threshold) prevImage();
   }, { passive: true });
 
-  // Keyboard Navigation Support
+  // Keyboard Arrow Navigation
   document.addEventListener('keydown', e => {
     if (document.getElementById('lightbox').style.display === 'flex') {
       if (e.key === 'ArrowRight') nextImage();
