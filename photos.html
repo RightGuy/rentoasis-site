@@ -9,8 +9,9 @@
 <body>
 
 <div class="hero-subpage">
+  <img src="assets/images/oasispalmsweb.jpg" alt="" class="hero-logo">
   <h1>Photo Gallery</h1>
-  <p>Explore Minnesota Terrace Apartments & Interior Views</p>
+  <p>Call Us Today: <a href="tel:2025822535" class="hero-phone">(202) 582-2535</a></p>
 </div>
 
 <nav class="main-nav">
@@ -31,41 +32,21 @@
     <a href="https://my.matterport.com/show/?m=58cNYRtVp9r" target="_blank" rel="noopener" class="btn-primary">🌐 Take 3D Virtual Tour</a>
   </div>
 
-  <h2>Community Gallery</h2>
-  <p>Click any photo to view a larger image:</p>
+  <h2>Community & Apartment Photos</h2>
+  <p>Tap any photo to expand. Swipe left or right to view adjacent images:</p>
 
-  <div class="gallery-grid">
-    <div class="gallery-item" onclick="openLightbox('assets/images/sofa.jpg')">
-      <img src="assets/images/sofa.jpg" alt="Living Room with Sofa">
-      <div class="caption">Living Room</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox('assets/images/kitchen.jpg')">
-      <img src="assets/images/kitchen.jpg" alt="Dining Room and Kitchen">
-      <div class="caption">Dining Room & Kitchen</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox('assets/images/bathroom.jpg')">
-      <img src="assets/images/bathroom.jpg" alt="Apartment Bathroom">
-      <div class="caption">Modern Bathroom</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox('assets/images/3517.jpg')">
-      <img src="assets/images/3517.jpg" alt="Minnesota Terrace Exterior">
-      <div class="caption">Minnesota Terrace Buildings</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox('assets/images/301Anacostia.jpg')">
-      <img src="assets/images/301Anacostia.jpg" alt="301 Anacostia Road Building">
-      <div class="caption">301 Anacostia Road Building</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox('assets/images/305.jpg')">
-      <img src="assets/images/305.jpg" alt="305 Anacostia Building">
-      <div class="caption">305 Anacostia Building</div>
-    </div>
-  </div>
+  <div id="gallery-grid" class="gallery-grid"></div>
 </section>
 
-<!-- Lightbox Modal -->
-<div id="lightbox" class="modal" onclick="closeLightbox()">
-  <span class="modal-close">&times;</span>
-  <img id="lightbox-img" src="" alt="Enlarged view">
+<!-- Swipeable Lightbox Modal -->
+<div id="lightbox" class="modal">
+  <span class="modal-close" onclick="closeLightbox()">&times;</span>
+  <span class="modal-arrow left" onclick="prevImage()">&#10094;</span>
+  <span class="modal-arrow right" onclick="nextImage()">&#10095;</span>
+  <div class="modal-content-wrapper">
+    <img id="lightbox-img" src="" alt="Gallery Preview">
+    <div id="lightbox-caption" class="modal-caption"></div>
+  </div>
 </div>
 
 <footer>
@@ -87,13 +68,109 @@
 </footer>
 
 <script>
-  function openLightbox(src) {
-    document.getElementById('lightbox-img').src = src;
+  // Complete image catalog from assets/images/
+  const photoCatalog = [
+    { src: 'assets/images/sofa.jpg', caption: 'Spacious Living Room' },
+    { src: 'assets/images/kitchen.jpg', caption: 'Dining Area & Kitchen' },
+    { src: 'assets/images/bathroom.jpg', caption: 'Modern Bathroom' },
+    { src: 'assets/images/3517.jpg', caption: 'Minnesota Terrace Exterior' },
+    { src: 'assets/images/301Anacostia.jpg', caption: '301 Anacostia Road Building' },
+    { src: 'assets/images/305.jpg', caption: '305 Anacostia Building Grounds' },
+    { src: 'assets/images/3519Minnesota.jpg', caption: '3519 Minnesota Avenue Elevation' },
+    { src: 'assets/images/metro2.jpg', caption: 'Nearby Metro & Bus Transit' }
+  ];
+
+  let currentPhotos = [];
+  let currentIndex = 0;
+
+  // Fisher-Yates Shuffle Algorithm for random ordering on each load
+  function shuffle(array) {
+    let arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function renderGallery() {
+    currentPhotos = shuffle(photoCatalog);
+    const container = document.getElementById('gallery-grid');
+    container.innerHTML = '';
+    
+    currentPhotos.forEach((photo, idx) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.onclick = () => openLightbox(idx);
+      item.innerHTML = `
+        <img src="${photo.src}" alt="${photo.caption}">
+        <div class="caption">${photo.caption}</div>
+      `;
+      container.appendChild(item);
+    });
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
     document.getElementById('lightbox').style.display = 'flex';
   }
+
   function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
   }
+
+  function updateLightbox() {
+    const photo = currentPhotos[currentIndex];
+    document.getElementById('lightbox-img').src = photo.src;
+    document.getElementById('lightbox-caption').textContent = photo.caption;
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % currentPhotos.length;
+    updateLightbox();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length;
+    updateLightbox();
+  }
+
+  // Touch Swipe Gesture Detection
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const modal = document.getElementById('lightbox');
+  modal.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  modal.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const threshold = 40; // minimum distance for swipe
+    if (touchEndX < touchStartX - threshold) {
+      nextImage(); // Swiped left
+    }
+    if (touchEndX > touchStartX + threshold) {
+      prevImage(); // Swiped right
+    }
+  }
+
+  // Keyboard navigation support
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').style.display === 'flex') {
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', renderGallery);
+
   (function() {
     const hostname = window.location.hostname.toLowerCase();
     if (hostname.includes('trigee')) {

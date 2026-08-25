@@ -2,453 +2,197 @@
  BASE STYLE SETTINGS
 ============================================================ */
 * {
- box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
- margin: 0;
- font-family: "Segoe UI", Arial, sans-serif;
- color: #222;
- background-color: #fff;
- line-height: 1.35; /* Extra tight line-height to collapse text blocks */
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
+  background-color: #fff;
+  line-height: 1.35;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
- color: #005bbb;
- text-decoration: none;
+  color: #005bbb;
+  text-decoration: none;
 }
 a:hover {
- text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* ============================================================
- HERO WRAPPER SYSTEM (MIXED UNITS FLUID HEIGHT)
+ SUBPAGE HERO HEADER SYSTEM (WITH PALM LOGO & PROMINENT PHONE)
 ============================================================ */
-.hero-wrapper {
- position: relative;
- width: 100%;
- /* MIXED UNIT CLAMP: Keeps the hero area short and structured across devices */
- height: clamp(190px, 33vh, 420px); 
- overflow: hidden;
+.hero-subpage {
+  position: relative;
+  background: #005bbb;
+  color: #ffffff;
+  padding: 0.85rem 1rem 0.75rem 1rem;
+  text-align: center;
+  overflow: hidden;
 }
 
-/* Desktop hero background container */
-.hero-desktop {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- display: flex; /* REQUIRED for desktop tiles */
- background-size: cover;
- background-position: center;
- transition: opacity 1.5s ease-in-out;
- opacity: 1; /* Desktop visible by default */
+/* Subtle Top-Left Palm Logo */
+.hero-subpage .hero-logo {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  height: 48px;
+  width: auto;
+  opacity: 0.35;
+  filter: brightness(0) invert(1); /* Converts black palm silhouette to subtle white */
+  pointer-events: none;
 }
 
-/* Individual desktop tiles created by JS */
-.hero-img {
- flex: 1; /* 4 equal tiles */
- height: 100%;
- background-size: cover;
- background-position: center;
- position: relative; /* required to anchor caption inside tile */
- overflow: hidden;
+.hero-subpage h1 {
+  margin: 0 0 0.15rem 0;
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.15;
 }
 
-/* Caption overlay — hidden until tile is hovered */
-.hero-caption {
- position: absolute;
- bottom: 0;
- left: 0;
- width: 100%;
- background: rgba(0, 0, 0, 0.55);
- color: #fff;
- text-align: center;
- padding: 0.3rem 0.5rem;
- font-size: 0.82rem;
- font-weight: 600;
- opacity: 0;
- transform: translateY(4px);
- transition: opacity 0.25s ease, transform 0.25s ease;
- pointer-events: none;
+.hero-subpage p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #e0f0ff;
 }
 
-.hero-img:hover .hero-caption {
- opacity: 1;
- transform: translateY(0);
+/* Prominent Phone Link */
+.hero-subpage a.hero-phone {
+  display: inline-block;
+  color: #ffffff !important;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  margin-left: 6px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
-
-/* Mobile hero background container */
-.hero-mobile {
- display: none; /* Hidden on desktop */
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-size: cover;
- background-position: center;
- transition: opacity 1.5s ease-in-out;
- opacity: 1; /* Always visible when active */
-}
-
-/* Fade class used by JS */
-.fade-active {
- opacity: 1 !important;
-}
-
-/* Hero text overlay */
-.hero-content {
- position: absolute;
- bottom: 0;
- left: 0;
- width: 100%;
- text-align: center;
- color: #fff;
- padding: 1rem 0.75rem 0.75rem 0.75rem;
- background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 65%, rgba(0, 0, 0, 0) 100%);
-}
-
-.hero-content h1 {
- font-size: 1.9rem;
- margin: 0 auto 0.25rem auto;
- font-weight: 700;
- max-width: 800px;
- text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6);
-}
-
-/* Forces the phone link inside the hero overlay to stay white instead of turning generic blue */
-.hero-content h1 a.hero-phone {
- color: #fff;
- text-decoration: none;
-}
-.hero-content h1 a.hero-phone:hover {
- text-decoration: underline;
-}
-
-.hero-content p {
- font-size: 0.95rem;
- margin: 0 auto 0.5rem auto;
- max-width: 700px;
- text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.6);
+.hero-subpage a.hero-phone:hover {
+  text-decoration: underline;
 }
 
 /* ============================================================
  BUTTONS
 ============================================================ */
 .btn-primary {
- display: inline-block;
- background-color: #005bbb;
- color: #fff;
- padding: 0.45rem 1.15rem; 
- text-decoration: none;
- border-radius: 4px;
- font-weight: 600;
- text-shadow: none;
+  display: inline-block;
+  background-color: #005bbb;
+  color: #fff;
+  padding: 0.45rem 1.15rem; 
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  text-shadow: none;
 }
 .btn-primary:hover {
- background-color: #004999;
+  background-color: #004999;
 }
 
 .btn-secondary {
- display: inline-block;
- background-color: #eee;
- color: #005bbb;
- padding: 0.35rem 1rem;
- border-radius: 4px;
- text-decoration: none;
- font-weight: 600;
+  display: inline-block;
+  background-color: #eee;
+  color: #005bbb;
+  padding: 0.35rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
 }
 .btn-secondary:hover {
- background-color: #ddd;
+  background-color: #ddd;
 }
 
 /* ============================================================
  MAIN NAVIGATION
 ============================================================ */
 .main-nav {
- background-color: #f8f8f8;
- border-bottom: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
 }
 .main-nav ul {
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- list-style: none;
- margin: 0;
- padding: 0.3rem 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem 0.4rem;
 }
 .main-nav li {
- margin: 0.2rem 0.5rem;
+  margin: 0.2rem 0.5rem;
 }
 .main-nav a {
- color: #005bbb;
- text-decoration: none;
- font-weight: 600;
- font-size: 0.88rem;
+  color: #005bbb;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
 }
 
 /* ============================================================
- PAGE SECTIONS & FLUID LAYOUT (COMPACT SPACING)
+ PAGE SECTIONS & CONTENT LAYOUT
 ============================================================ */
 section {
- max-width: 900px; 
- width: 94%; /* Expanded slightly to take up more horizontal space */
- margin: 0 auto; 
- padding: 0.85rem 1vw; /* Drastically reduced desktop section padding from 2rem down to 0.85rem */
+  max-width: 900px; 
+  width: 94%;
+  margin: 0 auto; 
+  padding: 0.85rem 1vw;
 }
 section h2 {
- color: #005bbb;
- margin-top: 0; 
- margin-bottom: 0.3rem; /* Pin-tight heading-to-content gap */
+  color: #005bbb;
+  margin-top: 0; 
+  margin-bottom: 0.3rem;
 }
 section p {
- margin-top: 0;
- margin-bottom: 0.5rem; /* Tight paragraph spacing baseline */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
-/* Lists */
 .feature-list {
- list-style: none;
- padding: 0;
- margin: 0 0 0.5rem 0;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
 }
 .feature-list li {
- margin-bottom: 0.25rem; /* Tighter tracking between feature checkmarks */
+  margin-bottom: 0.25rem;
 }
 
-/* MODERN MIXED UNIT RESPONSIVE RENTAL RATES GRID */
-.rate-list {
- display: flex;
- flex-wrap: wrap; 
- gap: 12px; /* Slightly closer card boundaries */
- list-style: none;
- padding: 0;
- margin: 0 0 0.6rem 0;
-}
-.rate-list li {
- flex: 1 1 calc(33.333% - 12px);
- min-width: 190px; 
- background: #f9f9f9;
- padding: 0.6rem 0.85rem;
- border-radius: 4px;
- border-left: 4px solid #005bbb;
- margin-bottom: 0; 
-}
-
-/* Disclaimer */
-.disclaimer {
- font-size: 0.88rem;
- color: #555;
- margin-top: 0.35rem;
-}
-
-/* Ordered list */
-.how-to-apply ol {
- padding-left: 1.15rem;
- margin-bottom: 0.5rem;
-}
-.how-to-apply ol li {
- margin-bottom: 0.25rem;
-}
-
-/* ============================================================
- FOOTER
-============================================================ */
-footer {
- background-color: #222;
- color: #fff;
- text-align: center;
- padding: 1.25rem 1rem;
- margin-top: 1.25rem;
-}
-
-/* General Footer Links (including Privacy Policy in footer paragraphs) */
-footer a,
-footer p a {
- color: #4da6ff;            /* Bright readable sky blue on dark background */
- text-decoration: underline; /* Clearly identifies it as a hyperlink */
- font-weight: 500;
- transition: color 0.2s ease;
-}
-
-footer a:hover,
-footer p a:hover {
- color: #ffffff;            /* Highlights to crisp white on hover */
- text-decoration: underline;
-}
-
-/* Footer navigation overrides for structural footer menu */
-.footer-nav {
- margin-bottom: 0.5rem;
-}
-.footer-nav a {
- color: #fff;
- margin: 0 0.4rem;
- text-decoration: none;
- font-weight: 600;
-}
-.footer-nav a:hover {
- color: #4da6ff;
- text-decoration: underline;
-}
-
-/* Equal Housing Logo */
-.eh-logo {
- display: block;
- margin: 0.4rem auto;
- max-width: 65px;
-}
-
-/* Fair Housing Text */
-.fair-housing {
- font-size: 0.82rem;
- margin: 0.3rem 0;
- color: #fff;
-}
-
-/* Copyright */
-footer p {
- font-size: 0.82rem;
- margin: 0.15rem 0;
-}
-
-/* ============================================================
- DEVICE OPTIMIZATION MEDIA QUERIES
-============================================================ */
-
-/* TABLETS & MEDIUM SCREENS */
-@media (max-width: 900px) {
- section {
-  padding: 0.75rem 1vw; 
- }
-}
-
-/* SMARTPHONES (ULTRA-LOW VERTICAL MARGINS) */
-@media (max-width: 600px) {
-
- .hero-desktop {
-  display: none; 
- }
-
- .hero-mobile {
-  display: block; 
- }
-
- /* Compact text sizing within compressed container */
- .hero-content {
-  padding: 1.25rem 0.5rem 0.4rem 0.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0) 100%);
- }
- .hero-content h1 {
-  font-size: 1.15rem;
-  margin-bottom: 0.1rem;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8);
- }
- .hero-content p {
-  font-size: 0.78rem;
-  margin-bottom: 0.35rem;
-  line-height: 1.15;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8);
- }
- .hero-content .btn-primary {
-  padding: 0.3rem 0.8rem;
-  font-size: 0.72rem;
- }
-
- /* Menu Compression */
- .main-nav ul {
-  padding: 0.1rem;
- }
- .main-nav li {
-  margin: 0.05rem 0.25rem; /* Links are nested closer together horizontally and vertically */
- }
- .main-nav a {
-  font-size: 0.78rem;
- }
-
- /* Ultra-compressed padding settings to bring off-screen items directly into viewport */
- section {
-  padding: 0.45rem 0.4rem; /* Drastically squeezed mobile padding */
- }
- section h2 {
-  font-size: 1.15rem;
-  margin-bottom: 0.2rem;
- }
- section p {
-  margin-bottom: 0.35rem;
- }
-}
-
-/* SMART WATCHES */
-@media (max-width: 320px) {
- .hero-content h1 {
-  font-size: 0.9rem;
- }
- .hero-content p {
-  display: none; 
- }
- .main-nav a {
-  font-size: 0.72rem;
- }
-}
-
-/* ============================================================
- SUBPAGE SPECIFIC EXTENSIONS
-============================================================ */
-
-/* Compact Subpage Hero Header */
-.hero-subpage {
-  background: #005bbb;
-  color: #ffffff;
-  padding: 1.5rem 1rem;
-  text-align: center;
-}
-.hero-subpage h1 {
-  margin: 0 0 0.3rem 0;
-  font-size: 1.8rem;
-  color: #ffffff;
-}
-.hero-subpage p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #e0f0ff;
-}
-
-/* 3D Tour CTA Block */
 .tour-cta {
   text-align: center;
   background: #f0f7ff;
   border: 1px solid #cce3ff;
-  padding: 1.25rem;
+  padding: 1rem;
   border-radius: 6px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 .tour-cta h2 {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
-/* Feature & Amenity Grid Layouts */
 .amenities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 15px;
-  margin: 1rem 0;
+  gap: 12px;
+  margin: 0.8rem 0;
 }
 .amenity-card {
   background: #f9f9f9;
   border: 1px solid #e2e2e2;
   border-radius: 6px;
-  padding: 1rem;
+  padding: 0.85rem;
 }
 .amenity-card h3 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: #005bbb;
   border-bottom: 2px solid #005bbb;
-  padding-bottom: 0.25rem;
-  font-size: 1.1rem;
+  padding-bottom: 0.2rem;
+  font-size: 1.05rem;
 }
 .amenity-card ul {
   list-style: none;
@@ -456,16 +200,18 @@ footer p {
   margin: 0;
 }
 .amenity-card li {
-  margin-bottom: 0.35rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.88rem;
 }
 
-/* Photo Gallery Grid & Lightbox */
+/* ============================================================
+ PHOTO GALLERY & SWIPE LIGHTBOX
+============================================================ */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 15px;
-  margin: 1rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 0.8rem 0;
 }
 .gallery-item {
   position: relative;
@@ -474,7 +220,7 @@ footer p {
   box-shadow: 0 2px 5px rgba(0,0,0,0.12);
   cursor: pointer;
   background: #111;
-  height: 200px;
+  height: 190px;
 }
 .gallery-item img {
   width: 100%;
@@ -491,45 +237,75 @@ footer p {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.72);
   color: #fff;
-  padding: 0.4rem 0.6rem;
-  font-size: 0.82rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
-/* Lightbox Modal */
+/* Swipe Lightbox Modal */
 .modal {
   display: none;
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.88);
-  z-index: 2000;
+  background: rgba(0,0,0,0.92);
+  z-index: 2500;
   justify-content: center;
   align-items: center;
+  touch-action: pan-y;
 }
-.modal img {
+.modal-content-wrapper {
+  position: relative;
   max-width: 90%;
   max-height: 85%;
+  text-align: center;
+}
+.modal img {
+  max-width: 100%;
+  max-height: 78vh;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  user-select: none;
+}
+.modal-caption {
+  color: #fff;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 .modal-close {
   position: absolute;
-  top: 20px; right: 30px;
+  top: 15px; right: 25px;
   color: #fff;
   font-size: 2.2rem;
   font-weight: bold;
   cursor: pointer;
+  z-index: 2600;
 }
+.modal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.8);
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+  z-index: 2600;
+}
+.modal-arrow.left { left: 15px; }
+.modal-arrow.right { right: 15px; }
+.modal-arrow:hover { color: #fff; }
 
-/* Contact & Info Cards */
+/* Contact Cards */
 .contact-card {
   background: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: 1.25rem;
-  margin: 1rem 0;
+  padding: 1rem;
+  margin: 0.8rem 0;
 }
 .contact-btn {
   padding: 0.35rem 0.85rem;
@@ -541,19 +317,74 @@ footer p {
   font-size: 0.85rem;
   cursor: pointer;
 }
-.contact-btn:hover {
-  background-color: #004999;
-}
 
-/* Embedded Map Container */
 .map-container {
-  margin: 1rem 0;
+  margin: 0.8rem 0;
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid #ddd;
 }
 .map-container iframe {
   width: 100%;
-  height: 320px;
+  height: 300px;
   border: 0;
+}
+
+/* ============================================================
+ FOOTER
+============================================================ */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1.1rem 1rem;
+  margin-top: 1.25rem;
+}
+footer a, footer p a {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+.footer-nav { margin-bottom: 0.4rem; }
+.footer-nav a { color: #fff; margin: 0 0.4rem; text-decoration: none; font-weight: 600; }
+.eh-logo { display: block; margin: 0.3rem auto; max-width: 55px; }
+.fair-housing, footer p { font-size: 0.8rem; margin: 0.15rem 0; }
+
+/* ============================================================
+ MOBILE OPTIMIZATIONS (COMPACT HERO & SPACING)
+============================================================ */
+@media (max-width: 600px) {
+  .hero-subpage {
+    padding: 0.5rem 0.5rem 0.45rem 0.5rem; /* Ultra-tight padding */
+  }
+  .hero-subpage .hero-logo {
+    height: 32px;
+    top: 6px;
+    left: 8px;
+    opacity: 0.25;
+  }
+  .hero-subpage h1 {
+    font-size: 1.05rem;
+    line-height: 1.1;
+    margin-bottom: 0.1rem;
+  }
+  .hero-subpage p {
+    font-size: 0.76rem;
+    line-height: 1.1;
+  }
+  .hero-subpage a.hero-phone {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-left: 3px;
+  }
+  
+  .main-nav ul { padding: 0.1rem; }
+  .main-nav li { margin: 0.05rem 0.2rem; }
+  .main-nav a { font-size: 0.75rem; }
+
+  section { padding: 0.4rem 0.4rem; }
+  section h2 { font-size: 1.1rem; margin-bottom: 0.15rem; }
+  section p { margin-bottom: 0.3rem; font-size: 0.88rem; }
+  
+  .modal-arrow.left { left: 5px; }
+  .modal-arrow.right { right: 5px; }
 }
