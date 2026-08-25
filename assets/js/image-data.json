@@ -340,5 +340,77 @@
     "Description": "Living Room",
     "Tags": "Interior, Living Room",
     "Include": true
+  },
+  {
+    "Filename": "Fancy-Bathroom.webp",
+    "Alt Text": "Fancy-Bathroom.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Bedroom.webp",
+    "Alt Text": "Fancy-Bedroom.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Bedroom2.webp",
+    "Alt Text": "Fancy-Bedroom2.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Bedroom3.webp",
+    "Alt Text": "Fancy-Bedroom3.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Bedroom4.webp",
+    "Alt Text": "Fancy-Bedroom4.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Dollhouse_View.webp",
+    "Alt Text": "Fancy-Dollhouse_View.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Kitchen1.webp",
+    "Alt Text": "Fancy-Kitchen1.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Living_Room.webp",
+    "Alt Text": "Fancy-Living_Room.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
+  },
+  {
+    "Filename": "Fancy-Living_Room2.webp",
+    "Alt Text": "Fancy-Living_Room2.webp",
+    "Description": "",
+    "Tags": "",
+    "Include": false,
+    "_unmatched": true
   }
 ]
