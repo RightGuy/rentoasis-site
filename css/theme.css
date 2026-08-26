@@ -124,7 +124,6 @@ a:hover {
   overflow: hidden;
 }
 
-/* Subtle Top-Left Palm Logo */
 .hero-subpage .subpage-palm-logo {
   position: absolute;
   top: 6px;
@@ -132,7 +131,7 @@ a:hover {
   height: 42px;
   width: auto;
   opacity: 0.85;
-  filter: brightness(0) invert(1); /* Converts silhouette to white */
+  filter: brightness(0) invert(1);
   pointer-events: none;
 }
 
@@ -150,7 +149,6 @@ a:hover {
   color: #e0f0ff;
 }
 
-/* Prominent Phone Link */
 .hero-subpage a.hero-phone {
   display: inline-block;
   color: #ffffff !important;
@@ -166,7 +164,7 @@ a:hover {
 }
 
 /* ============================================================
-   BUTTONS
+   BUTTONS & NAVIGATION
 ============================================================ */
 .btn-primary {
   display: inline-block;
@@ -194,9 +192,6 @@ a:hover {
   background-color: #ddd;
 }
 
-/* ============================================================
-   MAIN NAVIGATION
-============================================================ */
 .main-nav {
   background-color: #f8f8f8;
   border-bottom: 1px solid #ddd;
@@ -218,7 +213,7 @@ a:hover {
 }
 
 /* ============================================================
-   PAGE SECTIONS & CONTENT LAYOUT
+   PAGE SECTIONS & LAYOUT TIGHTENING
 ============================================================ */
 section {
   max-width: 900px; 
@@ -231,45 +226,61 @@ section h2 {
   margin-top: 0; 
   margin-bottom: 0.3rem;
 }
-section p { margin-top: 0; margin-bottom: 0.5rem; }
+section p { 
+  margin-top: 0; 
+  margin-bottom: 0.5rem; 
+}
+
+.address-block {
+  margin-bottom: 0.65rem;
+  line-height: 1.4;
+}
+
+/* Header & Button Alignments */
+.heading-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0.4rem;
+}
+.heading-btn-group h2 {
+  margin: 0;
+}
+
+/* Horizontal Rental Rates Grid (Flexbox) */
+.rate-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0.6rem 0;
+}
+.rate-list li {
+  flex: 1 1 calc(33.333% - 12px);
+  min-width: 190px;
+  background: #f9f9f9;
+  padding: 0.6rem 0.85rem;
+  border-radius: 4px;
+  border-left: 4px solid #005bbb;
+  list-style: none;
+}
 
 .feature-list { list-style: none; padding: 0; margin: 0 0 0.5rem 0; }
 .feature-list li { margin-bottom: 0.25rem; }
 
-.tour-cta {
-  text-align: center;
-  background: #f0f7ff;
-  border: 1px solid #cce3ff;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-}
-.tour-cta h2 { margin-bottom: 0.3rem; }
-
-.amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
-  margin: 0.8rem 0;
-}
-.amenity-card {
-  background: #f9f9f9;
-  border: 1px solid #e2e2e2;
-  border-radius: 6px;
-  padding: 0.85rem;
-}
-.amenity-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: #005bbb;
-  border-bottom: 2px solid #005bbb;
-  padding-bottom: 0.2rem;
-  font-size: 1.05rem;
-}
-.amenity-card ul { list-style: none; padding: 0; margin: 0; }
-.amenity-card li { margin-bottom: 0.3rem; font-size: 0.88rem; }
-
 .disclaimer { font-size: 0.88rem; color: #555; margin-top: 0.35rem; }
+
+.how-to-apply ol {
+  padding-left: 1.25rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.how-to-apply ol li {
+  margin-bottom: 0.25rem;
+}
 
 /* ============================================================
    PHOTO GALLERY & SWIPE LIGHTBOX
@@ -309,7 +320,7 @@ section p { margin-top: 0; margin-bottom: 0.5rem; }
   font-weight: 600;
 }
 
-/* Modal Lightbox */
+/* Swipe Lightbox Modal System */
 .modal {
   display: none;
   position: fixed;
@@ -440,6 +451,12 @@ footer a, footer p a { color: #4da6ff; text-decoration: underline; }
     font-weight: 700;
   }
   
+  .heading-btn-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
   .main-nav ul { padding: 0.1rem; }
   .main-nav li { margin: 0.05rem 0.2rem; }
   .main-nav a { font-size: 0.75rem; }
