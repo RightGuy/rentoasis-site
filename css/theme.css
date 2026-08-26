@@ -236,13 +236,13 @@ section p {
   line-height: 1.4;
 }
 
-/* Header & Button Alignments */
+/* Header & Button Alignments (ALIGNED NEXT TO HEADING) */
 .heading-btn-group {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 0.4rem;
 }
 .heading-btn-group h2 {
