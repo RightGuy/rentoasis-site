@@ -231,12 +231,29 @@ section p {
   margin-bottom: 0.5rem; 
 }
 
+/* Center 3D Virtual Tour Banner across Subpages */
+.tour-cta {
+  text-align: center;
+  background: #f0f7ff;
+  border: 1px solid #cce3ff;
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  margin: 0.5rem auto 1.25rem auto;
+  max-width: 900px;
+}
+.tour-cta h2 {
+  margin-bottom: 0.3rem;
+}
+.tour-cta .btn-primary {
+  margin: 0 auto;
+}
+
 .address-block {
   margin-bottom: 0.65rem;
   line-height: 1.4;
 }
 
-/* Header & Button Alignments (ALIGNED NEXT TO HEADING) */
+/* Header & Button Alignments */
 .heading-btn-group {
   display: flex;
   align-items: center;
@@ -266,6 +283,28 @@ section p {
   border-radius: 4px;
   border-left: 4px solid #005bbb;
   list-style: none;
+}
+
+/* Grid Layout for Amenities & Floor Plans */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 0.8rem 0 1.25rem 0;
+}
+.amenity-card {
+  background: #f9f9f9;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  padding: 1rem;
+}
+.amenity-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: #005bbb;
+  border-bottom: 2px solid #005bbb;
+  padding-bottom: 0.2rem;
+  font-size: 1.05rem;
 }
 
 .feature-list { list-style: none; padding: 0; margin: 0 0 0.5rem 0; }
